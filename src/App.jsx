@@ -1,6 +1,7 @@
 import { galleryItems } from "./constants";
 import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
+import { useFake3DPlane } from "./hooks/useFake3DPlane";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,8 +11,16 @@ function App() {
 
   const item = galleryItems[activeIndex];
 
+  const { canvasRef, isReady } = useFake3DPlane(
+    galleryItems[activeIndex].fake3dImg,
+    galleryItems[activeIndex].depthImg,
+    { xDepth: 7, yDepth: 7 }
+  );
+
   // === ANIMACIONES GSAP (FIELES AL ORIGINAL) ===
   useLayoutEffect(() => {
+    if (!canvasRef.current) return;
+
     const ctx = gsap.context(() => {
       // Fondo borroso crossfade
 
@@ -23,17 +32,25 @@ function App() {
 
       // Título y descripción
       gsap.fromTo(
-        ".project-details h1",
+        "h1",
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
       );
 
       // Imagen principal
       gsap.fromTo(
-        ".project-img",
-        { scale: 0, y: 80, opacity: 0 },
+        "h1",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+      );
+
+      // Canvas (imagen 3D)
+      gsap.fromTo(
+        canvasRef.current,
+        { scaleX: 0, scaleY: 0, y: 80, opacity: 0 },
         {
-          scale: 1,
+          scaleX: 1,
+          scaleY: 1,
           y: 0,
           opacity: 1,
           duration: 1,
@@ -42,14 +59,28 @@ function App() {
       );
 
       gsap.fromTo(
-        ".project-img img",
-        { scale: 2 },
-        { scale: 1, duration: 1, ease: "power2.out" }
+        "h1",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+      );
+
+      // Canvas (imagen 3D)
+      gsap.fromTo(
+        canvasRef.current,
+        { scaleX: 0, scaleY: 0, y: 80, opacity: 0 },
+        {
+          scaleX: 1,
+          scaleY: 1,
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        }
       );
     });
 
     return () => ctx.revert();
-  }, [activeIndex]);
+  }, [activeIndex, isReady]);
 
   return (
     <>
@@ -68,7 +99,17 @@ function App() {
         {/*  (IMAGEN PRINCIPAL) aplicar efectos hover-fake3d con three.js === */}
         <div className="project-preview" ref={previewRef}>
           <div className="project-img" ref={imgRef}>
-            <img src={item.fake3dImg} alt={item.title} />
+            {/* <img src={item.fake3dImg} alt={item.title} /> */}
+            {!isReady && <div>Loading...</div>}
+            <canvas
+              className="canvas"
+              ref={canvasRef}
+              // style={{
+              // width: "100%",
+              // height: "100%",
+              // objectFit: "fill",
+              // }}
+            />
           </div>
         </div>
 
