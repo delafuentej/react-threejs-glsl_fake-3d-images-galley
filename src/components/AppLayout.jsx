@@ -2,10 +2,10 @@ import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { useFake3DPlane } from "../hooks/useFake3DPlane";
 import GalleryWrapper from "./GalleryWrapper";
-import ProjectPreview from "./ProjectPreview";
 import BlurryBackground from "./BlurryBackground";
 import Titel from "./Titel";
 import { galleryItems } from "../constants";
+import Fake3DPlane from "./Fake3DPlane";
 
 function AppLayout() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -95,7 +95,7 @@ function AppLayout() {
         <Titel item={item} />
 
         {/*  (PROJECT PREVIEW COMPONENT) aplicar efectos hover-fake3d con three.js === */}
-        <ProjectPreview
+        <Fake3DPlane
           previewRef={previewRef}
           canvasRef={canvasRef}
           isReady={isReady}
