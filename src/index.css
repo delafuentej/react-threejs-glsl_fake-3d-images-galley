@@ -12,12 +12,6 @@ body {
   background-color: #0f0f0f;
 }
 
-h1 {
-  color: #fff;
-  font-size: 36px;
-  font-weight: 500;
-}
-
 .container {
   position: relative;
   width: 100vw;
@@ -43,7 +37,7 @@ h1 {
   backdrop-filter: blur(30px);
 }
 
-.site-info {
+.title {
   position: relative;
   flex: 1;
   display: flex;
@@ -52,25 +46,32 @@ h1 {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.title h1 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+}
+
 .project-preview {
   position: relative;
   flex: 2;
 }
 
-.title {
-  position: absolute;
-  top: 1em;
-  left: 1em;
-  margin-bottom: 0.5em;
+/* .title { */
+/* position: absolute; */
+/* top: 1em; */
+/* left: 1em; */
+/* margin-bottom: 0.5em; */
 
-  width: 80%;
-}
+/* width: 80%; */
+/* } */
 
-.title {
-  position: relative;
-  transform: translateY(40px);
-  will-change: transform;
-}
+/* .title { */
+/* position: relative; */
+
+/* transform: translateY(40px); */
+/* will-change: transform; */
+/* } */
 
 .canvas-wrapper {
   position: absolute;
@@ -146,7 +147,7 @@ h1 {
     height: 100vh;
   }
 
-  .site-info {
+  .title {
     flex: 0.25;
     display: flex;
     justify-content: center;
@@ -155,7 +156,7 @@ h1 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .title {
+  .title h1 {
     writing-mode: vertical-rl; /* vertical right-to-left */
     text-orientation: upright; /* mantiene los caracteres verticales */
     will-change: transform;
