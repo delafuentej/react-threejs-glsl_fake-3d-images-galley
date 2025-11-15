@@ -2,6 +2,7 @@ import { galleryItems } from "./constants";
 import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { useFake3DPlane } from "./hooks/useFake3DPlane";
+import GalleryWrapper from "./components/GalleryWrapper";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -98,8 +99,7 @@ function App() {
 
         {/*  (IMAGEN PRINCIPAL) aplicar efectos hover-fake3d con three.js === */}
         <div className="project-preview" ref={previewRef}>
-          <div className="project-img" ref={imgRef}>
-            {/* <img src={item.fake3dImg} alt={item.title} /> */}
+          <div className="canvas-wrapper">
             {!isReady && <div>Loading...</div>}
             <canvas
               className="canvas"
@@ -113,20 +113,12 @@ function App() {
           </div>
         </div>
 
-        {/* === GALERÍA (MISMA POSICIÓN Y DISEÑO) === */}
-        <div className="gallery-wrapper">
-          <div className="gallery">
-            {galleryItems.map((g, i) => (
-              <div
-                key={i}
-                className={`item ${i === activeIndex ? "active" : ""}`}
-                onClick={() => setActiveIndex(i)}
-              >
-                <img src={g.fake3dImg} alt={g.title} />
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* === GALLERY WRAPPER COMPONENT === */}
+        <GalleryWrapper
+          galleryItems={galleryItems}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
       </div>
     </>
   );
