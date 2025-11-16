@@ -1,47 +1,100 @@
+//depth images: https://app.artificialstudio.ai/tools/image-depth-map-generator
+
 export const galleryItems = [
+  // Mujeres expresivas / humanas
   {
     title: "Ethereal Awakening",
-    // description:
-    // "An artistic journey through stone and light. This surreal visual piece explores the boundary between sculpture and dream, where texture breathes and stillness evolves.",
     depthImg: "/images/depth/woman_depth.webp",
     fake3dImg: "/images/fake3d/woman_fake3d.webp",
   },
   {
-    title: "Ancient Reverie",
-    // description:
-    // "A cracked visage frozen in time — this piece captures the fragile beauty of decay, where color and erosion merge into an otherworldly calm.",
-    depthImg: "/images/depth/ancient_depth.webp",
-    fake3dImg: "/images/fake3d/ancient_fake3d.webp",
+    title: "Ethereal Glow",
+    fake3dImg: "/images/fake3d/woman2_fake3d.webp",
+    depthImg: "/images/depth/woman2_depth.webp",
   },
   {
-    title: "Spirit of the Dragon",
-    // description:
-    // "A vivid exploration of mythical energy and motion, sculpted in color and texture. The dragon’s roar reverberates through a whirlwind of carved clouds and flowing shapes.",
+    title: "Inferno Woman",
+    fake3dImg: "/images/fake3d/human_fake3d.webp",
+    depthImg: "/images/depth/human_depth.webp",
+  },
+  {
+    title: "Sweet Slumber",
+    fake3dImg: "/images/fake3d/human2_fake3d.webp",
+    depthImg: "/images/depth/human2_depth.webp",
+  },
+
+  // Fantasía / criaturas míticas
+  {
+    title: "Draconic Soul",
     depthImg: "/images/depth/dragon_depth.webp",
     fake3dImg: "/images/fake3d/dragon_fake3d.webp",
   },
-
-  /* --- Nuevos que enviaste --- */
-
   {
-    title: "Celestial Machine",
-    // description:
-    // "A serene biomechanical entity gazing into the horizon. This piece blends purity of form with intricate machinery, evoking a futuristic sense of calm intelligence.",
+    title: "Ancient Reverie",
+    depthImg: "/images/depth/ancient_depth.webp",
+    fake3dImg: "/images/fake3d/ancient_fake3d.webp",
+  },
+
+  // Animales majestuosos
+  {
+    title: "Stoneborn Beast",
+    depthImg: "/images/depth/lion_depth.webp",
+    fake3dImg: "/images/fake3d/lion_fake3d.webp",
+  },
+  {
+    title: "Majestic Lion",
+    fake3dImg: "/images/fake3d/lion2_fake3d.webp",
+    depthImg: "/images/depth/lion2_depth.webp",
+  },
+
+  // Animales lúdicos / coloridos
+  {
+    title: "Rainbow Unicorn",
+    fake3dImg: "/images/fake3d/unicorn_fake3d.webp",
+    depthImg: "/images/depth/unicorn_depth.webp",
+  },
+  {
+    title: "Frog Beats",
+    fake3dImg: "/images/fake3d/frog_fake3d.webp",
+    depthImg: "/images/depth/frog_depth.webp",
+  },
+  {
+    title: "Papercraft Pup",
+    fake3dImg: "/images/fake3d/dog_fake3d.webp",
+    depthImg: "/images/depth/dog_depth.webp",
+  },
+  {
+    title: "Crafted Kitty",
+    fake3dImg: "/images/fake3d/cat2_fake3d.webp",
+    depthImg: "/images/depth/cat2_depth.webp",
+  },
+  {
+    title: "Whimsical Zebra",
+    fake3dImg: "/images/fake3d/zebra2_fake3d.webp",
+    depthImg: "/images/depth/zebra2_depth.webp",
+  },
+
+  // Robots / mecánicos
+  {
+    title: "Sentinel of the Skies",
     depthImg: "/images/depth/robot_depth.webp",
     fake3dImg: "/images/fake3d/robot_fake3d.webp",
   },
+
+  // Cosmo / alienígenas
   {
-    title: "Sentinel of the Skies",
-    // description:
-    // "A guardian-like android sculpted with smooth surfaces and glowing eyes. The artwork captures a harmonious balance between technology, elegance, and silent vigilance.",
-    depthImg: "/images/depth/robot2_depth.webp",
-    fake3dImg: "/images/fake3d/robot2_fake3d.webp",
+    title: "Cosmic Cuteness",
+    fake3dImg: "/images/fake3d/baby_stelar_fake3d.webp",
+    depthImg: "/images/depth/baby_stelar_depth.webp",
   },
   {
-    title: "Stoneborn Beast",
-    // description:
-    // "An intricate carved lion emerging from layers of stylized stone. Its expression radiates power and ancient wisdom, blending organic presence with abstract geometry.",
-    depthImg: "/images/depth/lion_depth.webp",
-    fake3dImg: "/images/fake3d/lion_fake3d.webp",
+    title: "Rainbow Alien",
+    fake3dImg: "/images/fake3d/alien_fake3d.webp",
+    depthImg: "/images/depth/alien_depth.webp",
+  },
+  {
+    title: "Pink Alien",
+    fake3dImg: "/images/fake3d/alien2_fake3d.webp",
+    depthImg: "/images/depth/alien2_depth.webp",
   },
 ];
