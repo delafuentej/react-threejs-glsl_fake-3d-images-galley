@@ -17,9 +17,9 @@ body {
 }
 
 .container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 
@@ -27,23 +27,30 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+}
+
+.blurry-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   backdrop-filter: blur(30px);
 }
 
 .show-gallery {
+  width: auto;
   position: absolute;
-  bottom: 1%;
-  left: 50%;
+  top: 5%;
+  left: calc(10% / 2);
   transform: translateX(-50%);
   z-index: 100;
 }
@@ -52,16 +59,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 0.2rem;
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
   width: clamp(50px, 8vw, 80px); /* mínimo 50px, máximo 100px */
   height: clamp(50px, 8vw, 80px); /* mantiene proporción */
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
 }
 
 .circular-text-layer {
@@ -69,21 +73,21 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  pointer-events: none; /* no bloquea el click */
+  pointer-events: none;
 }
 
 .show-gallery-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 .circle-text-icon {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotate(-90deg); /* para empezar desde arriba */
+  transform: rotate(-90deg);
 }
 
 .icon {
-  font-size: clamp(1.5rem, 3vw, 2rem); /* mínimo 50px, máximo 100px */
+  font-size: clamp(1.5rem, 3vw, 2rem);
   position: absolute;
   z-index: 1;
   display: flex;
@@ -107,58 +111,60 @@ body {
 }
 
 .title {
-  position: relative;
+  position: sticky;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 10%;
+  height: 100vh;
+  /* flex: 1; */
 }
 
 .title h1 {
-  color: #fff;
   font-size: clamp(1.5rem, 2vw, 5rem);
   font-weight: 500;
   writing-mode: vertical-rl;
   text-orientation: upright;
-  will-change: transform;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: bolder;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
 .project-preview {
-  position: relative;
-  flex: 1.5;
+  /* position: relative; */
+  flex: 1;
 }
 
 .canvas-wrapper {
   position: absolute;
-  left: 0;
-  top: 0;
+  /* left: 0; */
+  /* top: 0; */
   width: 100%;
   aspect-ratio: 16 / 9;
-  height: 100vh;
+  height: auto;
 }
 .canvas {
-  /* width: 100%; */
+  width: 100%;
   height: 100%;
   object-fit: "cover";
 }
-
 .gallery-wrapper {
-  width: 10vw;
-  display: none;
+  overflow-y: scroll;
+  padding: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px);
+  /* position: relative; */
+  width: clamp(10vw, 18vw, 15vw);
+  height: 100vh;
+  display: none; /* GSAP lo activará */
   opacity: 0;
-  transform: translateY(80px);
-  justify-content: center;
-  z-index: 2;
-  overflow: auto;
-  padding: 0.75em;
-  background-color: rgba(255, 255, 255, 0.01);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery {
@@ -172,14 +178,21 @@ body {
 .gallery .item {
   position: relative;
   flex: 1;
-  cursor: pointer;
-  //background-color: #aeaeae;
+
+  /* //background-color: #aeaeae; */
 }
 
 .gallery .item img {
+  width: 100%;
+
+  height: auto; /* NO uses height:100% → causa el bug */
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
   filter: brightness(40%);
   transition: filter 0.4s;
 }
+
 .gallery .item img:hover {
   filter: brightness(120%) hue-rotate(25deg) saturate(100%);
   transition: filter 0.3s ease;
@@ -189,52 +202,61 @@ body {
   filter: brightness(100%);
 }
 
-.item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* .item img { */
+/* width: 100%; */
+/* height: 100%; */
+/* object-fit: cover; */
+/* } */
 
 @media (max-width: 900px) {
   .container {
     flex-direction: row;
     justify-content: center;
-    alin-items: center;
+    aling-items: center;
   }
 
   .blurry-prev {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    /* position: relative; */
+    /* top: 0; */
+    /* left: 0; */
+    /* width: 100vw; */
+    /* height: 100vh; */
   }
 
   .title {
-    flex: 0.25;
-    position: relative;
+    /* flex: 0.5; */
+    /* position: relative; */
   }
 
   .canvas-wrapper {
     width: 100vw;
     height: 100vh;
-    transform: none !important;
-    transition: none !important;
+    /* transform: none !important; */
+    /* transition: none !important; */
   }
-
   .gallery-wrapper {
-    top: 0;
-    right: 0;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    width: 15vw;
-    height: 100vh;
-    border-right: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* width: 28vw; ⬆ mucho más ancho */
+    /* min-width: 110px; ⬆ asegura buena visibilidad */
+    /* height: 100vh; */
+    /* overflow-y: scroll; ⬆ scroll vertical cómodo */
+    /* padding: 0.5rem; */
+    /* border-left: 1px solid rgba(255, 255, 255, 0.15); */
+    /* backdrop-filter: blur(20px); */
   }
 
   .gallery {
-    gap: 0.2rem;
+    gap: 0.3rem;
+  }
+
+  /* .gallery .item { */
+  /* width: 100%; */
+  /* height: 100vh; */
+  /* } */
+
+  .gallery .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
   }
 }

@@ -43,8 +43,13 @@ export function useFake3DPlane(
         loader.load(
           url,
           (tex) => {
-            if (tex.image) resolve(tex);
-            else reject("Textura no cargada correctamente");
+            if (!tex.image) return reject("Textura no cargada correctamente");
+
+            // ⚠️ Aquí NO tocamos flipY ni premultiplyAlpha
+            // tex.flipY = true;  // valor por defecto
+            // tex.premultiplyAlpha = false; // valor por defecto
+
+            resolve(tex);
           },
           undefined,
           reject
@@ -60,12 +65,6 @@ export function useFake3DPlane(
       .then(([mapTex, depthTex]) => {
         if (!mounted) return;
 
-        // Verificar que la textura tenga dimensiones
-        if (!mapTex.image || !mapTex.image.width || !mapTex.image.height) {
-          console.warn("Textura inválida:", mapImage);
-          return;
-        }
-
         // Crear shader material
         material = new THREE.ShaderMaterial({
           uniforms: {
@@ -80,8 +79,10 @@ export function useFake3DPlane(
         });
         shaderMaterialRef.current = material;
 
-        // Geometría responsiva
+        console.log("Map texture:", mapTex);
+        console.log("Depth texture:", depthTex);
 
+        // Geometría responsiva
         const aspectTexture = mapTex.image.width / mapTex.image.height;
         const aspectViewport = window.innerWidth / window.innerHeight;
         let width, height;
@@ -121,7 +122,6 @@ export function useFake3DPlane(
     const animate = () => {
       if (!mounted) return;
 
-      // Lerp manual para suavizar cursor
       cursor.lerpX += (cursor.x - cursor.lerpX) * 0.1;
       cursor.lerpY += (cursor.y - cursor.lerpY) * 0.1;
 
@@ -137,7 +137,7 @@ export function useFake3DPlane(
     };
     animate();
 
-    // Cleanup correcto
+    // Cleanup
     return () => {
       mounted = false;
       window.removeEventListener("mousemove", handleMouse);
