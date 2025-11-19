@@ -139,7 +139,7 @@ body.loaded {
 }
 
 .title h1 {
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1.5rem, 2vw, 1.85rem);
   font-weight: 500;
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -195,8 +195,6 @@ body.loaded {
 .gallery .item {
   position: relative;
   flex: 1;
-
-  /* //background-color: #aeaeae; */
 }
 
 .gallery .item img {

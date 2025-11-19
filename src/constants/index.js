@@ -54,7 +54,7 @@ export const colorPalette = {
 export const galleryItems = [
   // Mujeres expresivas / humanas
   {
-    title: "Ethereal Awakening",
+    title: "Ethereal Rise",
     type: "human",
     depthImg: "/images/depth/woman_depth.webp",
     fake3dImg: "/images/fake3d/woman_fake3d.webp",

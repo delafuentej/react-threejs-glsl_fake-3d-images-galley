@@ -10,6 +10,12 @@ Explore an interactive fake-3D image slider with WebGL parallax, depth-map disto
 
 The result is a lightweight "fake-3D" effect with smooth interaction and high performance.
 
+This project was inspired by **Victor Costa (𝘃𝘄𝗟𝗮𝗯-𝗖𝗿𝗲𝗮𝘁𝗶𝘃𝗲 𝗖𝗼𝗱𝗲)** course.
+
+The images displayed in the gallery were generated using **Canva AI** prompts, obtained from the **𝘃𝘄𝗟𝗮𝗯-𝗖𝗿𝗲𝗮𝘁𝗶𝘃𝗲 𝗖𝗼𝗱𝗲** course.
+
+Depth maps for the images were created either with a **custom Python script** or using [Artificial Studio Depth Map Generator](https://app.artificialstudio.ai/tools/image-depth-map-generator).
+
 ---
 
 ## 📸 Demo
