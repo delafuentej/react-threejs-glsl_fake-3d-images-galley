@@ -29,6 +29,7 @@ body.loaded {
   width: 100%;
   height: 100%;
   display: flex;
+  overflow: hidden;
 }
 
 .blurry-prev {
@@ -43,6 +44,7 @@ body.loaded {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* overflow: hidden; */
 }
 
 .overlay {
