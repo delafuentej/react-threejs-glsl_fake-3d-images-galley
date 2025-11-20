@@ -219,12 +219,6 @@ body.loaded {
   filter: brightness(100%);
 }
 
-/* .item img { */
-/* width: 100%; */
-/* height: 100%; */
-/* object-fit: cover; */
-/* } */
-
 @media (max-width: 900px) {
   .container {
     flex-direction: row;
@@ -232,46 +226,16 @@ body.loaded {
     align-items: center;
   }
 
-  .blurry-prev {
-    /* position: relative; */
-    /* top: 0; */
-    /* left: 0; */
-    /* width: 100vw; */
-    /* height: 100vh; */
-  }
-
-  .title {
-    /* flex: 0.5; */
-    /* position: relative; */
-  }
-
   .canvas-wrapper {
     width: 100%;
     height: 100%;
     left: 10%;
     top: 0;
-
-    /* transform: none !important; */
-    /* transition: none !important; */
-  }
-  .gallery-wrapper {
-    /* width: 28vw; ⬆ mucho más ancho */
-    /* min-width: 110px; ⬆ asegura buena visibilidad */
-    /* height: 100vh; */
-    /* overflow-y: scroll; ⬆ scroll vertical cómodo */
-    /* padding: 0.5rem; */
-    /* border-left: 1px solid rgba(255, 255, 255, 0.15); */
-    /* backdrop-filter: blur(20px); */
   }
 
   .gallery {
     gap: 0.3rem;
   }
-
-  /* .gallery .item { */
-  /* width: 100%; */
-  /* height: 100vh; */
-  /* } */
 
   .gallery .item img {
     width: 100%;
